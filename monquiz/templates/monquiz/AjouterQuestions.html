@@ -1,0 +1,16 @@
+{% extends 'monquiz/base.html' %}
+{% load static%}
+{% block content %}
+<div class="col-md-6">
+        <h1>Ajouter Question</h1>
+        <div class="card card-body">
+           <form action="" method="POST">
+              {% csrf_token %}
+                {{form.as_p}}
+                <br>
+             <input type="submit" name="Submit" class="btn btn-secondary fw-bold">
+             </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

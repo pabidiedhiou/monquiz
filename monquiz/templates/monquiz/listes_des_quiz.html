@@ -1,0 +1,44 @@
+{% extends 'monquiz/base.html' %} {% block title%} Accueil{%endblock title %}
+{%load static %} {% block scripts %}
+<script src="{% static 'monquiz/listes_des_quiz.js' %}" defer></script>
+{% endblock scripts %} {% block content%}
+
+<h1>Bienvenu dans notre applicati de quiz</h1>
+<h4>Liste des quizes</h4>
+<hr />
+<!-- Modale -->
+<div class="modal" id="modal" role="dialog">
+  <div class="modal-content">
+    <div class="modal-close" data-dismiss="dialog">X</div>
+    <div class="modal-header">
+      <p>Commencer ?</p>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <a href="" class="btn-oui btn-close" role="button" data-dismiss="dialog"
+        >Non</a
+      >
+      <a href="" id="commencer" class="btn-oui" role="button">Oui</a>
+    </div>
+  </div>
+</div>
+<div class="container monfond">
+  <!-- "Bouton" d'ouverture de la modale -->
+  {% for obj in object_list %}
+  <button
+    class="modal-button btn btn-primary fw-bold p-4 m-3"
+    href=""
+    role="button"
+    data-target="#modal"
+    data-toggle="modal"
+    data-pk="{{obj.pk}}"
+    data-quiz="{{obj.nom}}"
+    data-questions="{{obj.nombre_de_questions}}"
+    data-difficulte="{{obj.difficulte}}"
+    data-temps="{{obj.temps}}"
+    data-score="{{obj.score_requi_pour_passer}}"
+  >
+    {{obj.nom}}
+  </button>
+  {% endfor %} {%endblock %}
+</div>

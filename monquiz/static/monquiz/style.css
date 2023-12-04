@@ -1,0 +1,98 @@
+.monfond {
+  box-shadow: 0 8px 24px rgba(0, 32, 63, 0.45), 0 8px 8px rgba(0, 32, 63, 0.45);
+}
+.accueil {
+  background: #f6f5f7;
+  font-family: "Montserrat", sans-serif;
+  height: 200px;
+  width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 32, 63, 0.45), 0 8px 8px rgba(0, 32, 63, 0.45);
+}
+.modal {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: white;
+  max-width: 60vw;
+  margin: auto;
+  flex: 1;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-body {
+  padding: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+.btn-oui {
+  padding: 5px;
+  background-color: darkcyan;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-close {
+  background-color: red;
+  padding: 5px;
+}
+
+.btn-primaire {
+  background: #58f;
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 25px;
+}
+
+.invisible {
+  display: none;
+}
+.mon_bloc {
+  box-shadow: 0 8px 24px rgba(0, 32, 63, 0.45), 0 8px 8px rgba(0, 32, 63, 0.45);
+  margin: 0 20px 20px 20px;
+  padding: 20px;
+  width: 300px;
+}
+.mon_bloc2 {
+  margin-top: 200px;
+  border-bottom: 2px solid red;
+}
+.pabi {
+  border: 3px solid black;
+  font-size: 32px;
+}

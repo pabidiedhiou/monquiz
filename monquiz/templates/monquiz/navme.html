@@ -1,0 +1,33 @@
+{% load static %}
+<header>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top  fw-bold">
+<div class="container">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+  <ul class="navbar-nav">
+    <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:quizlistview' %}">Quizes</a> </li>
+    {% if request.user.is_staff %}
+    <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:ajoutquiz' %}">Ajouter Un Quiz</a></li>
+    <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:ajoutquestion' %}">Ajouter Des Questions</a></li>
+    <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:ajoutreponse' %}">Ajouter Des Reponses</a></li>
+    {% endif %}
+    </li>
+    <li>
+      <a class="nav-link" href="{% url 'connexion' %}">Connexion</a>
+    </li>
+  </ul>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-12">
+    <span class="greet">Salut, {{request.user}}</span>
+  </div>
+  <div class="col-lg-6 col-md-12">
+    <span ><a  class="greet text-light nav-link" href="{% url 'deconnexion' %}">Deconnexion</a></span>
+  </div>
+</div>
+  </div>
+</nav>
+</header>
+<br><br>

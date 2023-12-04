@@ -1,0 +1,31 @@
+{% extends 'monquiz/base.html' %}
+<!---->
+{% block title %} {{objets.nom}} {% endblock title %}
+<!---->
+{% load static %}
+<!---->
+{% block scripts %}
+<script src="{% static 'monquiz/monquiz.js' %}" defer></script>
+<script src="{% static 'monquiz/code.jquery.com_jquery-3.7.1.js' %}"></script>
+{% endblock scripts %} {% block content%}
+<div class="row">
+  <div class="col">
+    <b>{{objets.nom}}</b>
+    <p>score pour passer: {{objets.score_requi_pour_passer}}%</p>
+  </div>
+  <div class="col text-right" id="box-conteur"></div>
+</div>
+<a href="{% url 'monquiz:quizlistview' %}" class="btn btn-danger mb-3"
+  >Retour</a
+>
+<form id="form-quiz">
+  {% csrf_token %}
+  <div class="container">
+    <div class="box-quiz" id="box-quiz"></div>
+  </div>
+
+  <button type="submit" class="btn-primaire mb-3">Valider</button>
+</form>
+<div id="box-score"></div>
+<div id="box-resultat"></div>
+{%endblock %}
