@@ -1,6 +1,8 @@
 const url = window.location.href;
 const boxQuiz = document.getElementById("box-quiz");
+const arret = document.getElementById("arret");
 const boxConteur = document.getElementById("box-conteur");
+//----------HORLOGE-------------------------------------
 const activeConteur = (temps) => {
   if (temps.toString().length < 2) {
     boxConteur.innerHTML = `<b>0${temps}:00</b>`;
@@ -27,7 +29,7 @@ const activeConteur = (temps) => {
     } else {
       deployerSecondes = secondes;
     }
-    if (minutes === 0 && secondes === 0) {
+    if ((minutes === 0 && secondes === 0) || temps === 0) {
       boxConteur.innerHTML = `<b>00:00</b>`;
       setTimeout(() => {
         clearInterval(compteur);
@@ -37,7 +39,11 @@ const activeConteur = (temps) => {
     }
     boxConteur.innerHTML = `<b>${deployerMinutes}:${deployerSecondes}</b>`;
   }, 1000);
+  arret.addEventListener("click", () => {
+    clearTimeout(compteur);
+  });
 };
+//---------FIN HORLOGE----------------------------------
 $.ajax({
   type: "GET",
   url: `${url}donnees`,
@@ -135,6 +141,7 @@ const envoyerDonnees = () => {
     },
   });
 };
+
 formQuiz.addEventListener("submit", (e) => {
   e.preventDefault();
   envoyerDonnees();

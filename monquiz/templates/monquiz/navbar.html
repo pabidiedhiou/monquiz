@@ -10,7 +10,7 @@
     </div>
     {% if user.is_authenticated %}
     <div class="col-lg-6 col-md-12">
-      <span ><a  class="greet text-light nav-link" href="{% url 'deconnexion' %}">Deconnecter</a></span>
+      <span ><a  class="greet text-light nav-link" href="">Bienvenue</a></span>
     </div>
     {% endif %}
   </div>
@@ -21,14 +21,19 @@
   <ul class="navbar-nav">
     <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:quizlistview' %}">Quizes</a> </li>
     {% if request.user.is_staff %}
-    <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:ajoutquiz' %}">Ajouter Un Quiz</a></li>
-    <li class="nav-item active"><a class="nav-link" href="{% url 'monquiz:ajoutquestion' %}">Ajouter Des Questions</a></li>
-    <li class="nav-item active"><a class="nav-link" href="admin">Ajouter Des Reponses</a></li>
+    <li class="nav-item active"><a class="nav-link" href="admin">Ajouter Des Quizes</a></li>
     {% endif %}
     </li>
+    {% if user.is_authenticated %}
+    <li>
+      <a class="nav-link" href="{% url 'deconnexion' %}">Se deconnecter</a>
+    </li>
+    {% else %}
     <li>
       <a class="nav-link" href="{% url 'connexion' %}">Se connecter</a>
     </li>
+    {%endif%}
+    
   </ul>
 </div>
 
